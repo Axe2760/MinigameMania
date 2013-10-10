@@ -1,10 +1,17 @@
 package us.axe2760.minigamemania;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
+import us.axe2760.minigamemania.minigame.Minigame;
+import us.axe2760.minigamemania.minigame.MinigameLoader;
+
 public class Mania extends JavaPlugin{
+	
+	private List<Minigame> games = new ArrayList<>();
 	
 	public void onEnable(){
 		
@@ -19,6 +26,8 @@ public class Mania extends JavaPlugin{
 		if (!minigameFolder.exists()){
 			minigameFolder.mkdir();
 		}
+		
+		games = MinigameLoader.loadMinigames(minigameFolder);
 	}
 	
 }
