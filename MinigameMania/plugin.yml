@@ -1,0 +1,11 @@
+name: 'Minigame Mania'
+author: Axe2760
+prefix: 'Mania'
+main: us.axe2760.minigamemania.Mania
+commands:
+  minigame:
+    description: 'Command for minigames'
+    usage: /minigame
+  mg:
+    description: 'Command for minigames'
+    usage: /minigame

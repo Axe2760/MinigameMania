@@ -1,17 +1,20 @@
 package us.axe2760.minigamemania.minigame;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringWriter;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.zip.ZipFile;
 
 import org.apache.commons.io.IOUtils;
 import org.bukkit.configuration.file.YamlConfiguration;
 
+import us.axe2760.minigamemania.Mania;
 import us.axe2760.minigamemania.exceptions.InvalidMinigameYamlException;
 
 public class MinigameLoader {
@@ -22,8 +25,9 @@ public class MinigameLoader {
 		for (File entry : pathtodir.listFiles()){
 			String ext = entry.getPath().substring(entry.getPath().lastIndexOf(','));
 			if (ext.equals("jar") && ext.equals("zip")){
+				ZipFile zf = null;
 				try{
-					final ZipFile zf = new ZipFile(entry);
+					zf = new ZipFile(entry);
 					
 					if (zf.getEntry("minigame.yml") != null){
 						InputStream is = zf.getInputStream(zf.getEntry("minigame.yml"));
@@ -63,9 +67,15 @@ public class MinigameLoader {
 							throw new InvalidMinigameYamlException("Invalid minigame.yml!");
 						}
 					}
-					zf.close();
 				}catch(Exception e){
 					//TODO: Throw exception
+				}finally{
+					try {
+						zf.close();
+					} catch (IOException e) {
+						Mania.getInstance().getLogger().log(Level.SEVERE, "Error while disabling minigames.. disabling plugin!");
+						Mania.getInstance().getServer().getPluginManager().disablePlugin(Mania.getInstance());
+					}
 				}
 			}
 		}
