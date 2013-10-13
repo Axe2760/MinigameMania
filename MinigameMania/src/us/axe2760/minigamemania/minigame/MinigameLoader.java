@@ -19,6 +19,11 @@ import us.axe2760.minigamemania.exceptions.InvalidMinigameYamlException;
 
 public class MinigameLoader {
 	
+	/*
+	 * Get the minigames from the folder, to load them
+	 * @param pathtodir Path to Minigames directory
+	 * @return List of minigames to use
+	 */
 	@SuppressWarnings("deprecation")
 	public static List<Minigame> loadMinigames(File pathtodir){
 		List<Minigame> mg = new ArrayList<Minigame>();
@@ -55,7 +60,8 @@ public class MinigameLoader {
 								m.setDescription(description);
 								m.setPrefix(prefix);
 								
-								m.initializeStuff();
+								m.getHandlers().add(m);
+								
 								mg.add(m);
 								//all done
 							}

@@ -52,6 +52,13 @@ public class Mania extends JavaPlugin{
 		 */
 		getCommand("minigame").setExecutor(new CommandMinigame());
 		getCommand("mg").setExecutor(new CommandMinigame());
+		
+		/*
+		 * Initialize minigames
+		 */
+		for (Minigame m : games){
+			m.init();
+		}
 	}
 	
 	/*
