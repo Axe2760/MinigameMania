@@ -30,7 +30,7 @@ public class CommandMinigame implements CommandExecutor{
 					amount++;
 				}
 				
-				sender.sendMessage(ChatColor.GOLD + "[" +String.valueOf(amount) + "Minigames]: "+ ChatColor.BLUE + buffer.toString());
+				sender.sendMessage(ChatColor.GOLD + "[" +String.valueOf(amount) + " Minigames]: "+ ChatColor.BLUE + buffer.toString());
 			}
 			else if (args.length >= 1){
 				if (sender.hasPermission("mania.admin")){
