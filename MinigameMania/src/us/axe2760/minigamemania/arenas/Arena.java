@@ -77,11 +77,6 @@ public abstract class Arena {
 	/*
 	 * Kick all players from the arena.
 	 */
-	public void kickAll(){
-		for (String s : players){
-			if (Bukkit.getPlayer(s) != null){
-				//TODO: get player's main lobby, etc and kick them all to the lobby, ending the game
-			}
-		}
-	}
+	public abstract void kickAll(){}
+
 }
