@@ -28,7 +28,7 @@ public class MinigameLoader {
 	public static List<Minigame> loadMinigames(File pathtodir){
 		List<Minigame> mg = new ArrayList<Minigame>();
 		for (File entry : pathtodir.listFiles()){
-			String ext = entry.getPath().substring(entry.getPath().lastIndexOf(','));
+			String ext = entry.getPath().substring(entry.getPath().lastIndexOf('.'));
 			if (ext.equals("jar") && ext.equals("zip")){
 				ZipFile zf = null;
 				try{
