@@ -3,7 +3,6 @@ package us.axe2760.minigamemania.arenas;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.bukkit.Bukkit;
 import org.bukkit.Location;
 
 import us.axe2760.minigamemania.Gamemode;
@@ -77,6 +76,6 @@ public abstract class Arena {
 	/*
 	 * Kick all players from the arena.
 	 */
-	public abstract void kickAll(){}
+	public abstract void kickAll();
 
 }

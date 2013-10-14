@@ -1,6 +1,6 @@
 package us.axe2760.minigamemania.arenas;
 
-import us.axe2760.minigamemania.arena.Arena;
+import us.axe2760.minigamemania.arenas.Arena;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
